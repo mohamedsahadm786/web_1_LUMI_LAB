@@ -151,3 +151,6 @@ _Commit `<pending>` — "Use natural dimensions for hero product image"_
     still rotated 90° to the right.
 44. Increased the hero product image size (`max-w-sm` → `max-w-lg`),
     keeping the same aspect ratio.
+45. Zoomed the image **inside** the hero product rectangle a little more
+    (`scale-[1.12]`) — the frame size stays the same; the image is scaled
+    up and clipped by an `overflow-hidden` rounded frame.

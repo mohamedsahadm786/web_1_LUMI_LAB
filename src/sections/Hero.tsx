@@ -129,14 +129,17 @@ export default function Hero() {
           className="relative mx-auto w-full max-w-lg"
         >
           <div className="animate-bob">
-            <Img
-              name="hero/home-hero-product-image"
-              alt="Luma product"
-              label="3D Product Render"
-              tint={['#141414', '#323232']}
-              className="w-full rotate-90"
-              rounded="rounded-[2rem]"
-            />
+            {/* rotated frame clips the zoomed-in image */}
+            <div className="rotate-90 overflow-hidden rounded-[2rem]">
+              <Img
+                name="hero/home-hero-product-image"
+                alt="Luma product"
+                label="3D Product Render"
+                tint={['#141414', '#323232']}
+                className="w-full scale-[1.12]"
+                rounded="rounded-none"
+              />
+            </div>
           </div>
           <div className="pointer-events-none absolute -bottom-6 left-1/2 h-10 w-3/4 -translate-x-1/2 rounded-[50%] bg-black/70 blur-2xl" />
         </motion.div>
