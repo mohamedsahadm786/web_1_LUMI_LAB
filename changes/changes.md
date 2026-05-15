@@ -258,3 +258,16 @@ _Commit `<pending>` — "Add flip circles to the Why Us section"_
 68. Each circle is an outlined ring showing the title; on hover it
     **flips in 3D** to a white circle revealing the description.
 69. Circle copy was read from the reference site with Playwright.
+
+## 19. Get in Touch — recreated in black & white
+
+_Commit `<pending>` — "Rebuild the Get in Touch section"_
+
+70. Rebuilt the Contact section as a **"Get in Touch"** block matching the
+    reference layout: a panel with the big heading, contact details
+    top-right, a short paragraph and a "Chat With Us" button, above a
+    full-width banner image.
+71. Rendered in **black & white** (the reference uses sky-blue) — a white
+    panel with black text/button, and `src/images/extra/E_3` shown as a
+    **grayscale** banner.
+72. Replaced the previous two-column contact + message-form layout.

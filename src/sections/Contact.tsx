@@ -1,122 +1,72 @@
-import { useState } from 'react';
 import Reveal from '../components/Reveal';
-import RevealText from '../components/RevealText';
+import Img from '../components/Img';
 
-const DETAILS = [
-  { label: 'Visit', value: 'Level 5, Dubai, UAE' },
-  { label: 'Email', value: 'sales@lumauae.com', href: 'mailto:sales@lumauae.com' },
-  { label: 'Call', value: '+971 54 380 0625', href: 'tel:+971543800625' },
-];
-
+/**
+ * "Get in Touch" — recreated from the reference site, rendered in a
+ * black & white palette (a white panel above a grayscale image).
+ */
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', email: '', message: '' });
-  const [done, setDone] = useState(false);
-
   return (
     <section id="contact" className="relative py-24 md:py-32">
-      <div className="shell grid gap-14 lg:grid-cols-2 lg:items-start">
-        {/* left */}
-        <div>
-          <Reveal>
-            <p className="mb-4 inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-white/45">
-              <span className="h-px w-8 bg-white/40" /> Get in Touch
-            </p>
-          </Reveal>
-          <RevealText
-            as="h2"
-            className="font-display text-3xl font-medium leading-[1.12] text-white md:text-[2.7rem]"
-          >
-            Reach out — we&rsquo;re here to support you
-          </RevealText>
-          <Reveal delay={0.1}>
-            <p className="mt-6 max-w-md text-base text-body">
-              Reach out anytime for product details, order help, or personalised
-              assistance — we&rsquo;re here to support you smoothly.
-            </p>
-          </Reveal>
-
-          <div className="mt-10 space-y-px overflow-hidden rounded-2xl border border-hairline bg-hairline">
-            {DETAILS.map((d) => (
-              <div
-                key={d.label}
-                className="flex items-center justify-between bg-ink px-6 py-5"
-              >
-                <span className="text-xs uppercase tracking-[0.25em] text-white/40">
-                  {d.label}
-                </span>
-                {d.href ? (
-                  <a href={d.href} className="text-white hover:opacity-70">
-                    {d.value}
+      <div className="shell">
+        <Reveal>
+          <div className="overflow-hidden rounded-[2.2rem]">
+            {/* white panel */}
+            <div className="bg-white px-6 py-9 text-ink sm:px-10 md:px-14 md:py-12">
+              {/* contact details — top right */}
+              <div className="flex justify-end">
+                <div className="text-right">
+                  <p className="text-sm text-ink/55">Level 5, Dubai, UAE</p>
+                  <a
+                    href="mailto:sales@lumauae.com"
+                    className="text-sm text-ink/55 transition-colors hover:text-ink"
+                  >
+                    sales@lumauae.com
                   </a>
-                ) : (
-                  <span className="text-white">{d.value}</span>
-                )}
-              </div>
-            ))}
-          </div>
-
-          <Reveal delay={0.2}>
-            <a
-              href="https://wa.me/971543800625"
-              target="_blank"
-              rel="noreferrer"
-              className="mt-8 inline-flex items-center gap-3 rounded-full bg-whatsapp px-7 py-3.5 text-sm font-medium text-ink transition-transform duration-300 hover:scale-[1.04]"
-            >
-              Chat With Us <span aria-hidden>&rarr;</span>
-            </a>
-          </Reveal>
-        </div>
-
-        {/* form */}
-        <Reveal from="right">
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              setDone(true);
-            }}
-            className="rounded-3xl border border-hairline bg-surface p-7 md:p-10"
-          >
-            <h3 className="mb-7 font-display text-2xl text-white">
-              Send a Message
-            </h3>
-            <div className="space-y-5">
-              {(['name', 'email'] as const).map((f) => (
-                <div key={f}>
-                  <label className="mb-2 block text-xs uppercase tracking-[0.2em] text-white/40">
-                    {f}
-                  </label>
-                  <input
-                    required
-                    type={f === 'email' ? 'email' : 'text'}
-                    value={form[f]}
-                    onChange={(e) =>
-                      setForm({ ...form, [f]: e.target.value })
-                    }
-                    className="w-full border-b border-hairline bg-transparent pb-3 text-white outline-none transition-colors focus:border-white"
-                  />
+                  <p className="mt-1.5 font-display text-xl font-semibold text-ink md:text-2xl">
+                    +971 54 380 0625
+                  </p>
                 </div>
-              ))}
-              <div>
-                <label className="mb-2 block text-xs uppercase tracking-[0.2em] text-white/40">
-                  Message
-                </label>
-                <textarea
-                  rows={3}
-                  value={form.message}
-                  onChange={(e) =>
-                    setForm({ ...form, message: e.target.value })
-                  }
-                  className="w-full resize-none border-b border-hairline bg-transparent pb-3 text-white outline-none transition-colors focus:border-white"
-                />
+              </div>
+
+              {/* heading */}
+              <h2
+                className="-mt-1 font-display font-semibold uppercase leading-[0.95] text-ink"
+                style={{ fontSize: 'clamp(2.8rem, 9vw, 6.5rem)' }}
+              >
+                Get in Touch
+              </h2>
+
+              {/* paragraph + chat button */}
+              <div className="mt-7 flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
+                <p className="max-w-md text-sm leading-relaxed text-ink/55">
+                  Reach out anytime for product details, order help, or
+                  personalised assistance — we&rsquo;re here to support you
+                  smoothly.
+                </p>
+                <a
+                  href="https://wa.me/971543800625"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group inline-flex shrink-0 items-center gap-3 self-start rounded-full bg-ink py-2.5 pl-6 pr-2.5 text-sm font-medium text-white transition-transform duration-300 hover:scale-[1.04] md:self-auto"
+                >
+                  Chat With Us
+                  <span className="grid h-9 w-9 place-items-center rounded-full bg-white text-ink transition-transform duration-300 group-hover:rotate-45">
+                    &rarr;
+                  </span>
+                </a>
               </div>
             </div>
-            <button
-              type="submit"
-              className="mt-9 w-full rounded-full bg-white py-3.5 text-sm font-medium text-ink transition-transform duration-300 hover:scale-[1.02]"
-            >
-              {done ? 'Message Sent — Thank You' : 'Submit Enquiry'}
-            </button>
-          </form>
+
+            {/* full-width image — black & white */}
+            <Img
+              name="extra/E_3"
+              alt="Get in touch with Luma"
+              label="Contact"
+              rounded="rounded-none"
+              className="aspect-[3/2] w-full grayscale sm:aspect-[2/1] md:aspect-[5/2]"
+            />
+          </div>
         </Reveal>
       </div>
     </section>

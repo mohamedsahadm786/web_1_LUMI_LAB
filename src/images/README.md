@@ -54,6 +54,7 @@ autoplay, muted and looping.
 |-----------|-----------------------------------------------------------|
 | `E_1`     | The image tile in the Features row (below the hero)       |
 | `E_2`     | Full-bleed background of the "Let's Talk To" CTA section  |
+| `E_3`     | The banner image in the "Get in Touch" section (grayscale) |
 
 ### `products/` — one image per product (shop, home, product & search pages)
 Named after each product. Square images (~1000×1000) look best.
