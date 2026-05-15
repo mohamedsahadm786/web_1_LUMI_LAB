@@ -1,4 +1,3 @@
-import { motion } from 'motion/react';
 import RevealText from '../components/RevealText';
 import Reveal from '../components/Reveal';
 import SectionLabel from '../components/SectionLabel';
@@ -13,53 +12,45 @@ export default function About() {
       <div className="shell">
         <SectionLabel>About Us</SectionLabel>
 
-        <div className="mt-[-2vw] grid gap-14 lg:grid-cols-2 lg:items-center">
-          {/* image composition */}
-          <div className="relative">
-            <Reveal from="left">
+        <div className="mt-10 grid gap-14 lg:grid-cols-2 lg:items-center">
+          {/* image composition — big image left, two rectangles right */}
+          <Reveal from="left">
+            <div className="flex gap-4">
+              {/* big image — far left */}
               <Img
                 name="about/home-about-large-image"
                 alt="Luma research"
                 label="Lab / Research"
                 tint={['#161616', '#2c2c2c']}
-                className="aspect-[4/5] w-[82%]"
+                className="aspect-[3/4] w-[58%] shrink-0"
               />
-            </Reveal>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-              className="absolute -bottom-8 right-0 w-[46%]"
-            >
-              <Img
-                name="about/home-about-small-image"
-                alt="Luma formulation"
-                label="Formulation"
-                tint={['#1c1c1c', '#383838']}
-                className="aspect-square w-full"
-              />
-            </motion.div>
 
-            {/* stat counter chip */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="absolute -top-6 right-4 rounded-2xl border border-hairline bg-ink/90 px-6 py-5 backdrop-blur"
-            >
-              <span
-                ref={ref}
-                className="font-display text-5xl font-semibold text-white"
-              >
-                {value}+
-              </span>
-              <p className="mt-1 max-w-[8rem] text-xs uppercase tracking-wide text-body">
-                High-Purity Research Peptides
-              </p>
-            </motion.div>
-          </div>
+              {/* the two rectangles, stacked to the right of the big image */}
+              <div className="flex flex-1 flex-col gap-4">
+                {/* stat counter chip */}
+                <div className="flex flex-1 flex-col justify-center rounded-2xl border border-hairline bg-surface px-5 py-6">
+                  <span
+                    ref={ref}
+                    className="font-display text-4xl font-semibold text-white md:text-5xl"
+                  >
+                    {value}+
+                  </span>
+                  <p className="mt-1 text-xs uppercase tracking-wide text-body">
+                    High-Purity Research Peptides
+                  </p>
+                </div>
+
+                {/* small image */}
+                <Img
+                  name="about/home-about-small-image"
+                  alt="Luma formulation"
+                  label="Formulation"
+                  tint={['#1c1c1c', '#383838']}
+                  className="aspect-square w-full"
+                />
+              </div>
+            </div>
+          </Reveal>
 
           {/* text */}
           <div>

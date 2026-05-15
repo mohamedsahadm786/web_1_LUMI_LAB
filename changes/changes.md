@@ -154,3 +154,14 @@ _Commit `<pending>` — "Use natural dimensions for hero product image"_
 45. Zoomed the image **inside** the hero product rectangle a little more
     (`scale-[1.12]`) — the frame size stays the same; the image is scaled
     up and clipped by an `overflow-hidden` rounded frame.
+
+## 10. About Us — decluttered image layout
+
+_Commit `<pending>` — "Rearrange About Us images"_
+
+46. Removed the overlapping absolute-positioned layout in the About Us
+    section that left images clustered and on top of the headline.
+47. The **big image** now sits far left, cleanly **below** the "ABOUT US"
+    headline (negative margin removed).
+48. The **two rectangles** (the `1+` counter and the small image) are now
+    stacked neatly to the **right of the big image** — no overlaps.
