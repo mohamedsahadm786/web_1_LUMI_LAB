@@ -11,7 +11,7 @@ type Props = {
  * otherwise the "LUMA" wordmark.
  */
 export default function Logo({ size = 'sm', onClick }: Props) {
-  const logo = img('logo/logo');
+  const logo = img('logo/site-logo');
   const wordSize = size === 'lg' ? 'text-4xl' : 'text-2xl';
   const imgHeight = size === 'lg' ? 'h-11' : 'h-8';
 

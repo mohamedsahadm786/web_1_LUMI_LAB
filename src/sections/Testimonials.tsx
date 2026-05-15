@@ -114,7 +114,7 @@ export default function Testimonials() {
                 </p>
                 <div className="mt-8 flex items-center gap-4">
                   <Img
-                    name={`testimonials/${r.slug}`}
+                    name={`testimonials/home-testimonial-${r.slug}`}
                     alt={r.name}
                     label=""
                     tint={['#222', '#3a3a3a']}

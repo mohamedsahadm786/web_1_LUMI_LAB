@@ -1,33 +1,51 @@
 # Images — drop your photos here
 
 This is the **only** place you need to touch to add real photos.
-Put each file in the matching folder, using the **exact name** below.
-The extension does not matter — `.jpg`, `.png`, `.webp`, `.avif`, `.svg` all work.
+Each file name describes exactly which slot it fills, so you always know
+what you're replacing.
 
-After you drop a file in, just **save** — the site picks it up automatically.
-No file yet? A grey placeholder shows in its place, so nothing ever breaks.
+## How to replace a dummy with your real photo
 
-## Where each file goes
+Right now every slot holds a **dummy image** (a copy of one product photo).
+To put your real photo in:
+
+1. Open the folder, e.g. `src/images/hero/`.
+2. Note the file name there, e.g. `home-hero-product-image.webp`.
+3. **Delete that dummy file.**
+4. Add your real photo and rename it to the **same name** (extension can
+   differ — `.jpg`, `.png`, `.webp` all work, e.g. `home-hero-product-image.jpg`).
+5. Save. Done — no code changes, ever.
+
+No file at all? A grey placeholder shows instead, so nothing breaks.
+
+## Every slot
 
 ### `logo/`
-| File name   | Used for                          |
-|-------------|-----------------------------------|
-| `logo`      | The brand logo in the header / footer / search bar (replaces the "LUMA" text). |
+| File name    | Where it shows                              |
+|--------------|---------------------------------------------|
+| `site-logo`  | Header / footer / search bar logo. *(No dummy — the "LUMA" wordmark shows until you add this.)* |
 
-### `hero/`  — the big top section of the home page
-| File name     | Used for                                  | Suggested size      |
-|---------------|-------------------------------------------|---------------------|
-| `render`      | The floating product image on the right   | tall, ~900×1200 px  |
-| `background`  | The full background behind the hero       | wide, ~1920×1080 px |
+### `hero/` — home page, top section
+| File name                     | Where it shows                          |
+|--------------------------------|-----------------------------------------|
+| `home-hero-product-image`      | The floating product image on the right |
+| `home-hero-background-image`   | The full background behind the hero     |
 
-### `about/`  — the "About Us" section
-| File name     | Used for                              | Suggested size     |
-|---------------|---------------------------------------|--------------------|
-| `main`        | The large left image                  | tall, ~800×1000 px |
-| `secondary`   | The small overlapping image           | square, ~600×600 px|
+### `about/` — home page, About Us section
+| File name                  | Where it shows                       |
+|----------------------------|--------------------------------------|
+| `home-about-large-image`   | The large left image                 |
+| `home-about-small-image`   | The small overlapping image          |
 
-### `products/`  — one image per product
-Name each file after the product (its "slug"). Square images (~1000×1000) look best.
+### `testimonials/` — home page, Testimonials section
+| File name                          | Where it shows           |
+|-------------------------------------|--------------------------|
+| `home-testimonial-michael-reed`     | Michael Reed's photo     |
+| `home-testimonial-emily-carter`     | Emily Carter's photo     |
+| `home-testimonial-sofia-bennett`    | Sofia Bennett's photo    |
+
+### `products/` — one image per product (shop, home, product & search pages)
+Named after each product. Square images (~1000×1000) look best.
 
 | File name                  | Product                |
 |----------------------------|------------------------|
@@ -40,15 +58,14 @@ Name each file after the product (its "slug"). Square images (~1000×1000) look 
 | `tirzepatide-40mg`         | Tirzepatide 40mg       |
 | `tirzepatide-5mg`          | Tirzepatide 5mg        |
 
-### `testimonials/`  — customer photos
-| File name        | Used for                |
-|------------------|-------------------------|
-| `michael-reed`   | Michael Reed's avatar   |
-| `emily-carter`   | Emily Carter's avatar   |
-| `sofia-bennett`  | Sofia Bennett's avatar  |
+> Note: the raw uploads `bpcfrontnew.png`, `nadfront.png`, `retafrontnew.png`,
+> `retatrutide40mgfront.webp`, `Retatrutide-5MG-With-Pen-1-p-3200.jpg`,
+> `richbrownglownew.png` are still in `products/` but their names don't match
+> any slot, so they are unused. To use one, rename it to the matching product
+> name above (and delete that product's dummy `.webp`).
 
 ## Tips
 
-- Use simple lowercase file names with no spaces (e.g. `glow-5mg.jpg`, not `Glow 5mg.JPG`).
-- Don't put dots in the name other than before the extension.
-- If you add a new product later, name its image after the new slug and it works.
+- Use simple lowercase names, no spaces.
+- Keep the exact name from the tables above — only the extension may change.
+- Delete the old dummy file when you add your real one (same name = conflict).

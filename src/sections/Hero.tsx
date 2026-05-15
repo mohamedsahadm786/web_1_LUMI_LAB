@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="hero-bg absolute inset-0 -z-10 scale-110">
         <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_70%_30%,#161616_0%,#030303_70%)]" />
         <Img
-          name="hero/background"
+          name="hero/home-hero-background-image"
           fallback="none"
           rounded="rounded-none"
           alt=""
@@ -124,7 +124,7 @@ export default function Hero() {
         >
           <div className="animate-bob">
             <Img
-              name="hero/render"
+              name="hero/home-hero-product-image"
               alt="Luma product"
               label="3D Product Render"
               tint={['#141414', '#323232']}

@@ -18,7 +18,7 @@ export default function About() {
           <div className="relative">
             <Reveal from="left">
               <Img
-                name="about/main"
+                name="about/home-about-large-image"
                 alt="Luma research"
                 label="Lab / Research"
                 tint={['#161616', '#2c2c2c']}
@@ -33,7 +33,7 @@ export default function About() {
               className="absolute -bottom-8 right-0 w-[46%]"
             >
               <Img
-                name="about/secondary"
+                name="about/home-about-small-image"
                 alt="Luma formulation"
                 label="Formulation"
                 tint={['#1c1c1c', '#383838']}

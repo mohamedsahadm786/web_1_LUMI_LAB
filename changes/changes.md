@@ -97,3 +97,22 @@ _Commit `<pending>` — "Add modular image system"_
     "LUMA" wordmark; shared by the header, footer, and search bar.
 31. **`src/images/README.md`** — lists exactly which file name goes in which
     folder.
+
+## 6. Dummy images placed in every photo slot
+
+_Commit `<pending>` — "Place dummy images in all photo slots"_
+
+32. Copied one of the uploaded product images into **every photo slot** so the
+    site looks complete; each is a stand-in to be swapped for the real photo.
+33. **Self-describing file names** — each dummy is named after the exact slot
+    it fills, so it is obvious what to replace:
+    - `hero/home-hero-product-image`, `hero/home-hero-background-image`
+    - `about/home-about-large-image`, `about/home-about-small-image`
+    - `testimonials/home-testimonial-{michael-reed,emily-carter,sofia-bennett}`
+    - `products/<product-name>` for all 8 products
+34. Updated the `Img` references in code to the new names — a one-time change
+    so no code editing is ever needed again; replacing a photo is now purely
+    "drop file in folder with the same name".
+35. **Logo** kept as the "LUMA" wordmark (no dummy) — slot renamed to
+    `logo/site-logo`; add that file anytime to switch to a real logo.
+36. Rewrote `src/images/README.md` with the new names and the replace steps.
