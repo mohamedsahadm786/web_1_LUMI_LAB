@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { useLockScroll } from '../hooks/useLockScroll';
@@ -22,7 +23,7 @@ export default function CartDrawer({ open, onClose, count = 0 }: Props) {
     return () => window.removeEventListener('keydown', onKey);
   }, [open, onClose]);
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {open && (
         <>
@@ -106,6 +107,7 @@ export default function CartDrawer({ open, onClose, count = 0 }: Props) {
           </motion.aside>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

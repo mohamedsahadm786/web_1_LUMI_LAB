@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { products } from '../lib/products';
@@ -41,7 +42,7 @@ export default function SearchOverlay({ open, onClose }: Props) {
     return products.filter((p) => p.name.toLowerCase().includes(q));
   }, [query]);
 
-  return (
+  return createPortal(
     <AnimatePresence>
       {open && (
         <>
@@ -157,6 +158,7 @@ export default function SearchOverlay({ open, onClose }: Props) {
           </motion.div>
         </>
       )}
-    </AnimatePresence>
+    </AnimatePresence>,
+    document.body,
   );
 }

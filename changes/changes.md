@@ -212,3 +212,16 @@ _Commit `<pending>` — "Move Products content below the headline"_
 59. Changed the product-card image box from a tall `4/5` portrait to a
     wider, shorter `4/3` landscape so the product images fit better
     (applies to the home grid and the Shop page).
+
+## 15. Fix — cart drawer / search overlay not covering the page
+
+_Commit `<pending>` — "Portal cart & search overlays to body"_
+
+60. **Bug:** the cart drawer (and search overlay) were rendered inside
+    `<header>`. Once scrolled, the header gains `backdrop-blur`, and a
+    `backdrop-filter` makes that element the containing block for its
+    `fixed` children — so the overlays were sized to the 84px header
+    instead of the viewport, leaving the page unmasked.
+61. **Fix:** both overlays now render through a React **portal to
+    `document.body`**, escaping the header. They cover the full viewport
+    again — the panel masks its side and the backdrop dims the page.
