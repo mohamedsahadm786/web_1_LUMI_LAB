@@ -209,3 +209,6 @@ _Commit `<pending>` — "Move Products content below the headline"_
 58. Removed the negative margin so the Products heading, "View All
     Products" link, and product grid sit cleanly **below** the
     "OUR PRODUCTS" headline instead of overlapping it.
+59. Changed the product-card image box from a tall `4/5` portrait to a
+    wider, shorter `4/3` landscape so the product images fit better
+    (applies to the home grid and the Shop page).

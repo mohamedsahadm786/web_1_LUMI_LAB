@@ -25,7 +25,7 @@ export default function ProductCard({
     >
       <Link
         to={`/product/${product.slug}`}
-        className="relative block aspect-[4/5] overflow-hidden rounded-2xl border border-hairline bg-surface"
+        className="relative block aspect-[4/3] overflow-hidden rounded-2xl border border-hairline bg-surface"
       >
         <motion.div
           className="h-full w-full"
