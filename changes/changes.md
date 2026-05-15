@@ -131,12 +131,13 @@ _Commit `<pending>` — "Show hero background image, rotate hero product"_
 39. **`home-hero-product-image`** is now rotated 90° to the right, kept in
     the same position as before.
 
-## 8. Features row — added image square
+## 8. Features row — added image tile
 
-_Commit `<pending>` — "Add image square to features row"_
+_Commits `976b430`, `<pending>` — "Add image tile to features row"_
 
 40. Added a **4th cell** to the Features row (below the hero), on the far
-    right — a square tile holding the image `src/images/extra/E_1.webp`.
+    right — an image tile holding `src/images/extra/E_1.webp`.
 41. The features grid is now 4-up on large screens (`grid-cols-1` →
-    `sm:grid-cols-2` → `lg:grid-cols-4`); the square top-aligns with the
-    three feature cards and gently zooms on hover.
+    `sm:grid-cols-2` → `lg:grid-cols-4`).
+42. The image tile is the **same dimensions as the three feature cards**
+    (matching width and full height), and gently zooms on hover.

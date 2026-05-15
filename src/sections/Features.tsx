@@ -72,13 +72,13 @@ export default function Features() {
             </motion.article>
           ))}
 
-          {/* image square — rightmost cell in the features row */}
+          {/* image tile — rightmost cell, same size as the feature cards */}
           <motion.div
             initial={{ opacity: 0, y: 60 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: '0px 0px -12% 0px' }}
             transition={{ duration: 0.8, delay: FEATURES.length * 0.12, ease }}
-            className="group relative aspect-square self-start overflow-hidden rounded-3xl border border-hairline bg-surface"
+            className="group relative overflow-hidden rounded-3xl border border-hairline bg-surface"
           >
             <Img
               name="extra/E_1"
