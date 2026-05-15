@@ -225,3 +225,14 @@ _Commit `<pending>` — "Portal cart & search overlays to body"_
 61. **Fix:** both overlays now render through a React **portal to
     `document.body`**, escaping the header. They cover the full viewport
     again — the panel masks its side and the backdrop dims the page.
+
+## 16. Product cards — 3D tilt
+
+_Commit `<pending>` — "Add 3D tilt to product cards"_
+
+62. Product cards are now **3D tilt cards** — they lean toward the cursor
+    with a springy `rotateX`/`rotateY` motion and real perspective
+    (built with Motion's motion values + springs).
+63. A **glare** light-spot follows the pointer across the card.
+64. The card **edges shine** — a glowing inset rim lights up on hover,
+    plus a soft depth shadow.
