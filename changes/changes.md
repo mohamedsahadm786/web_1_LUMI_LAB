@@ -271,3 +271,13 @@ _Commit `<pending>` — "Rebuild the Get in Touch section"_
     panel with black text/button, and `src/images/extra/E_3` shown as a
     **grayscale** banner.
 72. Replaced the previous two-column contact + message-form layout.
+
+## 20. Get in Touch — refinements
+
+_Commit `<pending>` — "Refine the Get in Touch section"_
+
+73. The banner image is now shown in **colour** (removed the grayscale).
+74. The section is **full screen width** — the white panel and image span
+    edge to edge, no left/right gaps.
+75. The "Get in Touch" heading now uses the **same font treatment as the
+    other section headings** (Clash Display, medium weight, mixed case).
