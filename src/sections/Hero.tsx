@@ -134,7 +134,7 @@ export default function Hero() {
               alt="Luma product"
               label="3D Product Render"
               tint={['#141414', '#323232']}
-              className="aspect-[3/4] w-full rotate-90"
+              className="w-full rotate-90"
               rounded="rounded-[2rem]"
             />
           </div>

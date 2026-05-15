@@ -141,3 +141,11 @@ _Commits `976b430`, `<pending>` — "Add image tile to features row"_
     `sm:grid-cols-2` → `lg:grid-cols-4`).
 42. The image tile is the **same dimensions as the three feature cards**
     (matching width and full height), and gently zooms on hover.
+
+## 9. Hero — product image uses its natural dimensions
+
+_Commit `<pending>` — "Use natural dimensions for hero product image"_
+
+43. Removed the forced `3/4` aspect ratio on `home-hero-product-image` —
+    the image now displays at its **own natural dimensions** (uncropped),
+    still rotated 90° to the right.
