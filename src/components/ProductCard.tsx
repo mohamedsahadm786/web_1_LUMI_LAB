@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import type { Product } from '../lib/products';
-import Placeholder from './Placeholder';
+import Img from './Img';
 
 /** Product card — image zoom + action rail slide-up on hover. */
 export default function ProductCard({
@@ -32,8 +32,9 @@ export default function ProductCard({
           whileHover={{ scale: 1.06 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
         >
-          <Placeholder
-            section="products"
+          <Img
+            name={`products/${product.slug}`}
+            alt={product.name}
             label={product.name}
             tint={product.tint}
             rounded="rounded-none"

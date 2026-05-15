@@ -77,3 +77,23 @@ _Commit `<pending>` — "Add cart drawer and search overlay"_
 26. Both overlays: close on backdrop click, on `Escape`, and on route change;
     page scroll (Lenis + native) is locked while open. Opening one closes the
     other. Added a shared `useLockScroll` hook.
+
+## 5. Modular image system
+
+_Commit `<pending>` — "Add modular image system"_
+
+27. **New `src/images/` folder** with one subfolder per section
+    (`logo/`, `hero/`, `about/`, `products/`, `testimonials/`) — the single
+    place to drop real photos. Replaced the old root `assets/` folder.
+28. **Auto-detect** — `src/lib/images.ts` picks up every file under
+    `src/images/` automatically; look up by `folder/name` with no extension.
+    Drop a file, save, it appears — no code editing, and `.jpg`/`.png`/`.webp`
+    etc. all work.
+29. **`Img` component** — shows the real photo if its file exists, otherwise
+    falls back to the sized placeholder (or nothing, for the hero background).
+    Wired into Hero, About, product cards, the product page, testimonials,
+    and the search results.
+30. **`Logo` component** — uses `src/images/logo/logo.*` if present, else the
+    "LUMA" wordmark; shared by the header, footer, and search bar.
+31. **`src/images/README.md`** — lists exactly which file name goes in which
+    folder.

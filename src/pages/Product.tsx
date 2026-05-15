@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { getProduct, products } from '../lib/products';
-import Placeholder from '../components/Placeholder';
+import Img from '../components/Img';
 import ProductCard from '../components/ProductCard';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -61,8 +61,9 @@ export default function Product() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease }}
             >
-              <Placeholder
-                section="products"
+              <Img
+                name={`products/${product.slug}`}
+                alt={product.name}
                 label={product.name}
                 tint={product.tint}
                 className="aspect-square w-full"
@@ -70,9 +71,10 @@ export default function Product() {
               />
               <div className="mt-4 grid grid-cols-4 gap-4">
                 {[0, 1, 2, 3].map((i) => (
-                  <Placeholder
+                  <Img
                     key={i}
-                    section="products"
+                    name={`products/${product.slug}`}
+                    alt=""
                     label=""
                     tint={product.tint}
                     className="aspect-square w-full"

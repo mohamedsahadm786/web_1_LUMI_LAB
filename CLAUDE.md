@@ -20,7 +20,9 @@ and logo are placeholders to be swapped for real assets later.
 - Use `useGSAP` from `@gsap/react` for GSAP code (auto-cleanup), not raw `useEffect`.
 - Animate **`transform` and `opacity` only** — never `width`/`height`/`top`/`left`.
 - Design tokens via Tailwind theme + CSS variables; no hardcoded hex in components.
-- Placeholder assets live in `assets/<section>/`; never inline base64 images.
+- Real images go in `src/images/<section>/`; reference them via the `<Img>`
+  component (resolved by `src/lib/images.ts`). Missing file falls back to
+  `<Placeholder>`. Never inline base64 images.
 
 ## Do not
 

@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import CartDrawer from './CartDrawer';
 import SearchOverlay from './SearchOverlay';
+import Logo from './Logo';
 
 /** Items in cart — static for now; cart logic comes later. */
 const CART_COUNT = 0;
@@ -54,12 +55,7 @@ export default function Header() {
       }`}
     >
       <div className="shell flex h-[84px] items-center justify-between">
-        <Link to="/#home" className="group flex items-baseline gap-[3px]">
-          <span className="font-display text-2xl font-semibold tracking-tight text-white">
-            LUMA
-          </span>
-          <span className="h-1.5 w-1.5 rounded-full bg-white transition-transform duration-300 group-hover:scale-150" />
-        </Link>
+        <Logo size="sm" />
 
         <nav className="hidden items-center gap-9 lg:flex">
           {NAV.map((n) => (

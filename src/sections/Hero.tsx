@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { useGSAP } from '@gsap/react';
 import { gsap } from '../lib/gsap';
 import { useTypewriter } from '../hooks/useTypewriter';
-import Placeholder from '../components/Placeholder';
+import Img from '../components/Img';
 
 const PHRASES = [
   'Your Weight-Loss Journey Reinvented by Science',
@@ -43,6 +43,13 @@ export default function Hero() {
       {/* parallax background */}
       <div className="hero-bg absolute inset-0 -z-10 scale-110">
         <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_70%_30%,#161616_0%,#030303_70%)]" />
+        <Img
+          name="hero/background"
+          fallback="none"
+          rounded="rounded-none"
+          alt=""
+          className="absolute inset-0 h-full w-full"
+        />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,#030303_100%)]" />
       </div>
       {/* drifting glow */}
@@ -116,8 +123,9 @@ export default function Hero() {
           className="relative mx-auto w-full max-w-sm"
         >
           <div className="animate-bob">
-            <Placeholder
-              section="hero"
+            <Img
+              name="hero/render"
+              alt="Luma product"
               label="3D Product Render"
               tint={['#141414', '#323232']}
               className="aspect-[3/4] w-full"

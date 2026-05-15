@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
 import { products } from '../lib/products';
 import { useLockScroll } from '../hooks/useLockScroll';
-import Placeholder from './Placeholder';
+import Img from './Img';
+import Logo from './Logo';
 
 type Props = {
   open: boolean;
@@ -67,16 +68,9 @@ export default function SearchOverlay({ open, onClose }: Props) {
             <div className="shell py-7 md:py-9">
               {/* top row: logo · input · close */}
               <div className="flex items-center gap-5 md:gap-10">
-                <Link
-                  to="/#home"
-                  onClick={onClose}
-                  className="hidden shrink-0 items-baseline gap-1 sm:flex"
-                >
-                  <span className="font-display text-2xl font-semibold text-white">
-                    LUMA
-                  </span>
-                  <span className="h-1.5 w-1.5 rounded-full bg-white" />
-                </Link>
+                <div className="hidden shrink-0 sm:block">
+                  <Logo size="sm" onClick={onClose} />
+                </div>
 
                 <div className="relative flex-1">
                   <input
@@ -138,8 +132,9 @@ export default function SearchOverlay({ open, onClose }: Props) {
                         onClick={onClose}
                         className="group flex items-center gap-3 rounded-xl border border-hairline bg-surface p-3 transition-colors duration-300 hover:border-white/30 hover:bg-surface2"
                       >
-                        <Placeholder
-                          section="products"
+                        <Img
+                          name={`products/${p.slug}`}
+                          alt={p.name}
                           label=""
                           tint={p.tint}
                           rounded="rounded-lg"

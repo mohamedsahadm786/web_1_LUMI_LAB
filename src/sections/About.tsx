@@ -2,7 +2,7 @@ import { motion } from 'motion/react';
 import RevealText from '../components/RevealText';
 import Reveal from '../components/Reveal';
 import SectionLabel from '../components/SectionLabel';
-import Placeholder from '../components/Placeholder';
+import Img from '../components/Img';
 import { useCountUp } from '../hooks/useCountUp';
 
 export default function About() {
@@ -17,8 +17,9 @@ export default function About() {
           {/* image composition */}
           <div className="relative">
             <Reveal from="left">
-              <Placeholder
-                section="about"
+              <Img
+                name="about/main"
+                alt="Luma research"
                 label="Lab / Research"
                 tint={['#161616', '#2c2c2c']}
                 className="aspect-[4/5] w-[82%]"
@@ -31,8 +32,9 @@ export default function About() {
               transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="absolute -bottom-8 right-0 w-[46%]"
             >
-              <Placeholder
-                section="about"
+              <Img
+                name="about/secondary"
+                alt="Luma formulation"
                 label="Formulation"
                 tint={['#1c1c1c', '#383838']}
                 className="aspect-square w-full"

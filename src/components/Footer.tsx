@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
+import Logo from './Logo';
 
 const QUICK = [
   { label: 'Home', to: '/#home' },
@@ -24,12 +25,7 @@ export default function Footer() {
             <p className="mb-3 text-xs uppercase tracking-[0.3em] text-white/40">
               Here to Help You Anytime
             </p>
-            <Link to="/#home" className="flex items-baseline gap-1">
-              <span className="font-display text-4xl font-semibold text-white">
-                LUMA
-              </span>
-              <span className="h-2 w-2 rounded-full bg-white" />
-            </Link>
+            <Logo size="lg" />
             <ul className="mt-7 space-y-2 text-sm uppercase tracking-wide text-body">
               <li>Level 5, Dubai, UAE</li>
               <li>

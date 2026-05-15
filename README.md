@@ -32,12 +32,12 @@ Motion · GSAP (ScrollTrigger + SplitText) · Lenis
 - `src/pages` — route components
 - `src/lib` — gsap setup, product data
 - `src/hooks` — typewriter, count-up
-- `assets/` — placeholder image slots, one folder per section (see `assets/README.md`)
+- `src/images/` — real image slots, one folder per section (see `src/images/README.md`)
 - `docs/` — `source-analysis.md` (spec of the original) and `build-plan.md`
 
 ## Swapping in real assets
 
-Every image is a `<Placeholder>` sized to its final slot. See `assets/README.md`
+Drop image files into `src/images/<section>/`. See `src/images/README.md`
 for how to replace each one with a real photo without touching layout.
 
 ## Notes

@@ -2,24 +2,27 @@ import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import RevealText from '../components/RevealText';
 import SectionLabel from '../components/SectionLabel';
-import Placeholder from '../components/Placeholder';
+import Img from '../components/Img';
 
-type Review = { quote: string; name: string; role: string };
+type Review = { slug: string; quote: string; name: string; role: string };
 
 const REVIEWS: Review[] = [
   {
+    slug: 'michael-reed',
     quote:
       'Consistent products, clear guidance, and quick replies made the whole process simple and genuinely reassuring from start to finish.',
     name: 'Michael Reed',
     role: 'Research Assistant',
   },
   {
+    slug: 'emily-carter',
     quote:
       'Fast support and reliable formulations every time — ordering with Luma has been smooth, dependable, and refreshingly straightforward.',
     name: 'Emily Carter',
     role: 'Wellness Consultant',
   },
   {
+    slug: 'sofia-bennett',
     quote:
       'Everything arrived securely sealed, communication was excellent, and the overall service felt exactly like a premium brand should.',
     name: 'Sofia Bennett',
@@ -110,8 +113,9 @@ export default function Testimonials() {
                   {r.quote}
                 </p>
                 <div className="mt-8 flex items-center gap-4">
-                  <Placeholder
-                    section="testimonials"
+                  <Img
+                    name={`testimonials/${r.slug}`}
+                    alt={r.name}
                     label=""
                     tint={['#222', '#3a3a3a']}
                     rounded="rounded-full"
