@@ -76,6 +76,14 @@ Named after each product. Square images (~1000×1000) look best.
 > any slot, so they are unused. To use one, rename it to the matching product
 > name above (and delete that product's dummy `.webp`).
 
+### `product-gallery/` — the 4 thumbnail images per product
+On a product page, the main image has **4 thumbnails** below it; clicking a
+thumbnail swaps the main image. Each product has 4 gallery files named
+`<product>_1` … `<product>_4` (32 files in total).
+
+Example for Glow 5mg: `glow-5mg_1`, `glow-5mg_2`, `glow-5mg_3`, `glow-5mg_4`.
+Do the same for every product name listed in `products/` above.
+
 ## Tips
 
 - Use simple lowercase names, no spaces.

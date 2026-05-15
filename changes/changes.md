@@ -281,3 +281,14 @@ _Commit `<pending>` — "Refine the Get in Touch section"_
     edge to edge, no left/right gaps.
 75. The "Get in Touch" heading now uses the **same font treatment as the
     other section headings** (Clash Display, medium weight, mixed case).
+
+## 21. Product page — modular gallery thumbnails
+
+_Commit `<pending>` — "Add product-gallery image folder & thumbnails"_
+
+76. Added a new **`src/images/product-gallery/`** folder holding the
+    **4 thumbnail images per product** — 32 files in total, named
+    `<product>_1` … `<product>_4`.
+77. The product page's 4 thumbnails now read from that folder; clicking a
+    thumbnail **swaps the main image**. Each of the 32 images can be
+    replaced modularly, like every other image slot.
