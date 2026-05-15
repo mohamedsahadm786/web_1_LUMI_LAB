@@ -149,3 +149,5 @@ _Commit `<pending>` — "Use natural dimensions for hero product image"_
 43. Removed the forced `3/4` aspect ratio on `home-hero-product-image` —
     the image now displays at its **own natural dimensions** (uncropped),
     still rotated 90° to the right.
+44. Increased the hero product image size (`max-w-sm` → `max-w-lg`),
+    keeping the same aspect ratio.

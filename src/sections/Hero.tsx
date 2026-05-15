@@ -126,7 +126,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9, y: 30 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.25, ease }}
-          className="relative mx-auto w-full max-w-sm"
+          className="relative mx-auto w-full max-w-lg"
         >
           <div className="animate-bob">
             <Img
