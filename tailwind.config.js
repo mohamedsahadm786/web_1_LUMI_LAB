@@ -39,12 +39,21 @@ export default {
           '0%, 100%': { opacity: '1' },
           '50%': { opacity: '0' },
         },
+        glow: {
+          '0%, 100%': {
+            boxShadow: '0 0 26px -16px rgba(255,255,255,0.25)',
+          },
+          '50%': {
+            boxShadow: '0 0 58px -8px rgba(255,255,255,0.42)',
+          },
+        },
       },
       animation: {
         marquee: 'marquee 32s linear infinite',
         spinslow: 'spinslow 26s linear infinite',
         bob: 'bob 6s ease-in-out infinite',
         blink: 'blink 1s step-end infinite',
+        glow: 'glow 3.6s ease-in-out infinite',
       },
     },
   },

@@ -165,3 +165,16 @@ _Commit `<pending>` — "Rearrange About Us images"_
     headline (negative margin removed).
 48. The **two rectangles** (the `1+` counter and the small image) are now
     stacked neatly to the **right of the big image** — no overlaps.
+
+## 11. About Us — split stat tile, count, motion & glow
+
+_Commit `<pending>` — "Split About stat tile, add motion/glow/shine"_
+
+49. Split the `1+ High-Purity Research Peptides` rectangle into **two
+    smaller tiles** in the same space: the counter on the left and an
+    image tile on the right (new slot `about/home-about-stat-image`).
+50. Changed the counter from `1+` to **`25+`**.
+51. Added a **clutter → spread** entrance: the four tiles start clustered
+    and rotated, then spring out and align into place on scroll-in.
+52. Added a pulsing **glow** (`animate-glow` keyframe) and a sweeping
+    **shine** highlight on every tile.

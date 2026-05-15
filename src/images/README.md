@@ -32,10 +32,11 @@ No file at all? A grey placeholder shows instead, so nothing breaks.
 | `home-hero-background-image`   | The full background behind the hero     |
 
 ### `about/` — home page, About Us section
-| File name                  | Where it shows                       |
-|----------------------------|--------------------------------------|
-| `home-about-large-image`   | The large left image                 |
-| `home-about-small-image`   | The small overlapping image          |
+| File name                  | Where it shows                              |
+|----------------------------|---------------------------------------------|
+| `home-about-large-image`   | The large left image                        |
+| `home-about-stat-image`    | Small image beside the `25+` counter        |
+| `home-about-small-image`   | The small image below the counter row       |
 
 ### `testimonials/` — home page, Testimonials section
 | File name                          | Where it shows           |
