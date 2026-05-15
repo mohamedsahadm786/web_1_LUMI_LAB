@@ -1,16 +1,30 @@
 import { motion } from 'motion/react';
 import Reveal from '../components/Reveal';
+import Img from '../components/Img';
 
 export default function HelpCta() {
   return (
-    <section className="relative py-10 md:py-16">
-      <div className="shell">
+    <section className="relative overflow-hidden py-24 md:py-36">
+      {/* full-bleed background image */}
+      <Img
+        name="extra/E_2"
+        fallback="none"
+        rounded="rounded-none"
+        alt=""
+        className="absolute inset-0 h-full w-full"
+      />
+      {/* darkening + edge fades so the heading reads and the section
+          blends into the black sections above and below */}
+      <div className="absolute inset-0 bg-ink/55" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#030303_0%,rgba(3,3,3,0)_22%,rgba(3,3,3,0)_72%,#030303_100%)]" />
+
+      <div className="shell relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 70 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '0px 0px -10% 0px' }}
           transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[2.5rem] border border-hairline bg-surface px-7 py-14 md:px-16 md:py-20"
+          className="relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-ink/65 px-7 py-14 backdrop-blur-md md:px-16 md:py-20"
         >
           <div className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 animate-spinslow rounded-full border border-dashed border-white/10" />
           <div className="pointer-events-none absolute bottom-0 left-1/3 h-48 w-48 rounded-full bg-white/[0.04] blur-3xl" />

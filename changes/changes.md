@@ -236,3 +236,14 @@ _Commit `<pending>` — "Add 3D tilt to product cards"_
 63. A **glare** light-spot follows the pointer across the card.
 64. The card **edges shine** — a glowing inset rim lights up on hover,
     plus a soft depth shadow.
+
+## 17. Help CTA — full-bleed background image
+
+_Commit `<pending>` — "Add full-bleed background to Help CTA section"_
+
+65. Added `src/images/extra/E_2.jpg` as a **full-bleed background image**
+    across the whole "Let's Talk To / Get Instant Help" section
+    (matching the reference site).
+66. The CTA card is now a translucent dark panel on top of the photo;
+    a darkening overlay plus top/bottom fades keep the heading readable
+    and blend the section into the black sections above and below.

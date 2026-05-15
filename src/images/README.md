@@ -49,6 +49,12 @@ autoplay, muted and looping.
 | `home-testimonial-emily-carter`     | Emily Carter's photo     |
 | `home-testimonial-sofia-bennett`    | Sofia Bennett's photo    |
 
+### `extra/` — extra images used across the page
+| File name | Where it shows                                            |
+|-----------|-----------------------------------------------------------|
+| `E_1`     | The image tile in the Features row (below the hero)       |
+| `E_2`     | Full-bleed background of the "Let's Talk To" CTA section  |
+
 ### `products/` — one image per product (shop, home, product & search pages)
 Named after each product. Square images (~1000×1000) look best.
 
