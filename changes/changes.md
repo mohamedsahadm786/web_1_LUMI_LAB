@@ -178,3 +178,15 @@ _Commit `<pending>` — "Split About stat tile, add motion/glow/shine"_
     and rotated, then spring out and align into place on scroll-in.
 52. Added a pulsing **glow** (`animate-glow` keyframe) and a sweeping
     **shine** highlight on every tile.
+
+## 12. About Us — clockwise image cycling
+
+_Commit `<pending>` — "Cycle About images clockwise through the tiles"_
+
+53. The three **image tiles** (big, top-right, bottom-right) now keep
+    their fixed shape, size and position, while the three images
+    continuously **travel clockwise** from one tile to the next, non-stop.
+54. Each swap slides the outgoing image out and the incoming image in
+    along the clockwise direction (every ~2.8s). The `25+` counter tile
+    is excluded — it stays fixed.
+55. Cycling is paused for users with reduced-motion enabled.

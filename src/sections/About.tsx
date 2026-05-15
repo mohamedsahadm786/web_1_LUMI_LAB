@@ -1,9 +1,50 @@
-import { motion } from 'motion/react';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion } from 'motion/react';
 import RevealText from '../components/RevealText';
 import Reveal from '../components/Reveal';
 import SectionLabel from '../components/SectionLabel';
 import Img from '../components/Img';
 import { useCountUp } from '../hooks/useCountUp';
+
+const ease = [0.22, 1, 0.36, 1] as const;
+
+/** The three images that rotate through the three image tiles. */
+const CYCLE = [
+  'about/home-about-large-image',
+  'about/home-about-stat-image',
+  'about/home-about-small-image',
+];
+
+/**
+ * Per-tile travel direction so the images flow clockwise:
+ * slot 0 = big left, slot 1 = top-right, slot 2 = bottom-right.
+ */
+const FLOW = [
+  { enter: { x: '74%', y: '58%' }, exit: { x: '74%', y: '-58%' } },
+  { enter: { x: '-94%', y: '8%' }, exit: { x: '10%', y: '98%' } },
+  { enter: { x: '-8%', y: '-98%' }, exit: { x: '-96%', y: '8%' } },
+];
+
+type Clutter = { x: number; y: number; rotate: number; scale: number };
+
+/**
+ * Two-phase entrance: the tile appears in a central cluttered pile,
+ * holds there briefly, then spreads out and aligns into its real slot.
+ */
+function pile(c: Clutter) {
+  return {
+    initial: { opacity: 0, x: c.x, y: c.y, rotate: c.rotate, scale: c.scale },
+    whileInView: {
+      opacity: [0, 1, 1],
+      x: [c.x, c.x, 0],
+      y: [c.y, c.y, 0],
+      rotate: [c.rotate, c.rotate, 0],
+      scale: [c.scale, c.scale, 1],
+    },
+    viewport: { once: true, margin: '0px 0px -15% 0px' },
+    transition: { duration: 1.9, times: [0, 0.36, 1], ease },
+  };
+}
 
 /** A light "shine" that sweeps across a tile on a loop. */
 function Shine({ delay = 0 }: { delay?: number }) {
@@ -24,12 +65,46 @@ function Shine({ delay = 0 }: { delay?: number }) {
   );
 }
 
-// clutter -> spread: a springy settle into place
-const spring = { type: 'spring' as const, stiffness: 68, damping: 13 };
-const inView = { once: true, margin: '0px 0px -12% 0px' };
+/**
+ * One image tile. Its picture slides out and the next one slides in
+ * every time the cycle advances — so the three images keep travelling
+ * clockwise through the three fixed tiles, non-stop.
+ */
+function CyclingImage({ slot, step }: { slot: number; step: number }) {
+  const name = CYCLE[(((slot - step) % 3) + 3) % 3];
+  const flow = FLOW[slot];
+  return (
+    <AnimatePresence initial={false}>
+      <motion.div
+        key={name}
+        className="absolute inset-0"
+        initial={{ ...flow.enter, opacity: 0, scale: 0.92 }}
+        animate={{ x: '0%', y: '0%', opacity: 1, scale: 1 }}
+        exit={{ ...flow.exit, opacity: 0, scale: 0.92 }}
+        transition={{ duration: 0.78, ease }}
+      >
+        <Img
+          name={name}
+          alt="Luma"
+          label="Image"
+          rounded="rounded-none"
+          className="h-full w-full"
+        />
+      </motion.div>
+    </AnimatePresence>
+  );
+}
 
 export default function About() {
   const { ref, value } = useCountUp(25);
+  const [step, setStep] = useState(0);
+
+  // advance the clockwise image cycle, non-stop
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const id = setInterval(() => setStep((s) => s + 1), 2800);
+    return () => clearInterval(id);
+  }, []);
 
   return (
     <section id="about" className="relative py-24 md:py-32">
@@ -37,37 +112,25 @@ export default function About() {
         <SectionLabel>About Us</SectionLabel>
 
         <div className="mt-10 grid gap-14 lg:grid-cols-2 lg:items-center">
-          {/* image composition — pieces start cluttered, then spread + align */}
+          {/* image composition — tiles clutter into a pile, then spread + align;
+              the three image tiles then cycle their pictures clockwise */}
           <div className="flex gap-4">
-            {/* big image — far left */}
+            {/* big image tile — slot 0 (far left) */}
             <motion.div
-              initial={{ opacity: 0, x: 86, y: 38, rotate: -9, scale: 0.66 }}
-              whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
-              viewport={inView}
-              transition={{ ...spring, delay: 0 }}
-              className="relative w-[58%] shrink-0 overflow-hidden rounded-2xl border border-hairline animate-glow"
+              {...pile({ x: 118, y: 8, rotate: -11, scale: 0.5 })}
+              className="relative aspect-[3/4] w-[58%] shrink-0 overflow-hidden rounded-2xl border border-hairline animate-glow"
             >
-              <Img
-                name="about/home-about-large-image"
-                alt="Luma research"
-                label="Lab / Research"
-                tint={['#161616', '#2c2c2c']}
-                className="aspect-[3/4] w-full"
-                rounded="rounded-none"
-              />
+              <CyclingImage slot={0} step={step} />
               <Shine delay={0.2} />
             </motion.div>
 
             {/* right column */}
             <div className="flex flex-1 flex-col gap-4">
-              {/* the split row — counter + image, in the old chip's space */}
+              {/* the split row — counter + image */}
               <div className="flex flex-1 gap-4">
-                {/* counter rectangle */}
+                {/* counter rectangle — fixed, no cycling */}
                 <motion.div
-                  initial={{ opacity: 0, x: -62, y: 54, rotate: 11, scale: 0.66 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
-                  viewport={inView}
-                  transition={{ ...spring, delay: 0.12 }}
+                  {...pile({ x: -104, y: 118, rotate: 13, scale: 0.46 })}
                   className="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-hairline bg-surface px-4 py-5 animate-glow"
                 >
                   <span
@@ -82,42 +145,22 @@ export default function About() {
                   <Shine delay={0.9} />
                 </motion.div>
 
-                {/* image rectangle — placeholder, swap later */}
+                {/* image tile — slot 1 (top-right) */}
                 <motion.div
-                  initial={{ opacity: 0, x: -116, y: 32, rotate: -13, scale: 0.66 }}
-                  whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
-                  viewport={inView}
-                  transition={{ ...spring, delay: 0.22 }}
+                  {...pile({ x: -216, y: 112, rotate: -16, scale: 0.46 })}
                   className="relative flex-1 overflow-hidden rounded-2xl border border-hairline animate-glow"
                 >
-                  <Img
-                    name="about/home-about-stat-image"
-                    alt="Luma"
-                    label="Image"
-                    tint={['#1c1c1c', '#383838']}
-                    className="h-full w-full"
-                    rounded="rounded-none"
-                  />
+                  <CyclingImage slot={1} step={step} />
                   <Shine delay={1.5} />
                 </motion.div>
               </div>
 
-              {/* small image */}
+              {/* image tile — slot 2 (bottom-right) */}
               <motion.div
-                initial={{ opacity: 0, x: -80, y: -60, rotate: 9, scale: 0.66 }}
-                whileInView={{ opacity: 1, x: 0, y: 0, rotate: 0, scale: 1 }}
-                viewport={inView}
-                transition={{ ...spring, delay: 0.32 }}
-                className="relative overflow-hidden rounded-2xl border border-hairline animate-glow"
+                {...pile({ x: -158, y: -96, rotate: 10, scale: 0.5 })}
+                className="relative aspect-square overflow-hidden rounded-2xl border border-hairline animate-glow"
               >
-                <Img
-                  name="about/home-about-small-image"
-                  alt="Luma formulation"
-                  label="Formulation"
-                  tint={['#1c1c1c', '#383838']}
-                  className="aspect-square w-full"
-                  rounded="rounded-none"
-                />
+                <CyclingImage slot={2} step={step} />
                 <Shine delay={2.1} />
               </motion.div>
             </div>
