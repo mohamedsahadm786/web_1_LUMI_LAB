@@ -40,9 +40,11 @@ export default function Hero() {
       ref={root}
       className="relative flex min-h-screen items-center overflow-hidden pt-[84px]"
     >
-      {/* parallax background */}
-      <div className="hero-bg absolute inset-0 -z-10 scale-110">
+      {/* parallax background — fills the whole Home section */}
+      <div className="hero-bg absolute inset-0 z-0 scale-110">
+        {/* fallback look if no background image is present */}
         <div className="absolute inset-0 bg-[radial-gradient(80%_60%_at_70%_30%,#161616_0%,#030303_70%)]" />
+        {/* the background photo */}
         <Img
           name="hero/home-hero-background-image"
           fallback="none"
@@ -50,12 +52,16 @@ export default function Hero() {
           alt=""
           className="absolute inset-0 h-full w-full"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_55%,#030303_100%)]" />
+        {/* light fade only — keeps the background photo clearly visible
+            while the top blends under the header and the bottom into the
+            next section. */}
+        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(3,3,3,0.65)_0%,rgba(3,3,3,0)_20%,rgba(3,3,3,0)_60%,#030303_100%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,3,3,0.6)_0%,rgba(3,3,3,0)_55%)]" />
       </div>
       {/* drifting glow */}
-      <div className="pointer-events-none absolute -right-40 top-1/4 -z-10 h-[36rem] w-[36rem] rounded-full bg-white/[0.04] blur-3xl" />
+      <div className="pointer-events-none absolute -right-40 top-1/4 z-0 h-[36rem] w-[36rem] rounded-full bg-white/[0.04] blur-3xl" />
 
-      <div className="shell grid items-center gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr]">
+      <div className="shell relative z-10 grid items-center gap-12 py-16 lg:grid-cols-[1.15fr_0.85fr]">
         <div>
           <motion.p
             initial={{ opacity: 0, y: 24 }}
@@ -128,7 +134,7 @@ export default function Hero() {
               alt="Luma product"
               label="3D Product Render"
               tint={['#141414', '#323232']}
-              className="aspect-[3/4] w-full"
+              className="aspect-[3/4] w-full rotate-90"
               rounded="rounded-[2rem]"
             />
           </div>

@@ -116,3 +116,17 @@ _Commit `<pending>` — "Place dummy images in all photo slots"_
 35. **Logo** kept as the "LUMA" wordmark (no dummy) — slot renamed to
     `logo/site-logo`; add that file anytime to switch to a real logo.
 36. Rewrote `src/images/README.md` with the new names and the replace steps.
+
+## 7. Hero — background image & rotated product
+
+_Commit `<pending>` — "Show hero background image, rotate hero product"_
+
+37. **`home-hero-background-image`** now fills the entire Home (hero) section
+    as its background. The bug: the background layer used a negative
+    `z-index` (`-z-10`) which hid it behind an opaque surface — fixed by
+    layering it at `z-0` with the hero content at `z-10`.
+38. Replaced the heavy dark overlay with a light gradient (top + left fade
+    only) so the background photo stays clearly visible while the heading
+    text remains readable.
+39. **`home-hero-product-image`** is now rotated 90° to the right, kept in
+    the same position as before.
