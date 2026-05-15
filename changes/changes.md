@@ -201,3 +201,11 @@ _Commit `<pending>` — "Support video media; use video.mp4 in About"_
 57. Replaced the About `home-about-large-image` photo with
     `src/images/about/video.mp4` — the video now cycles clockwise through
     the About tiles alongside the two images.
+
+## 14. Our Products — content moved below the headline
+
+_Commit `<pending>` — "Move Products content below the headline"_
+
+58. Removed the negative margin so the Products heading, "View All
+    Products" link, and product grid sit cleanly **below** the
+    "OUR PRODUCTS" headline instead of overlapping it.

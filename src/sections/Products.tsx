@@ -11,7 +11,7 @@ export default function Products() {
       <div className="shell">
         <SectionLabel>Our Products</SectionLabel>
 
-        <div className="mt-[-2vw] flex flex-col items-end justify-between gap-6 md:flex-row">
+        <div className="mt-10 flex flex-col items-end justify-between gap-6 md:flex-row">
           <RevealText
             as="h2"
             className="max-w-xl font-display text-3xl font-medium leading-[1.12] text-white md:text-[2.6rem]"
