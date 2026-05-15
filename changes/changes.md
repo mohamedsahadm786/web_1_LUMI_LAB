@@ -247,3 +247,14 @@ _Commit `<pending>` — "Add full-bleed background to Help CTA section"_
 66. The CTA card is now a translucent dark panel on top of the photo;
     a darkening overlay plus top/bottom fades keep the heading readable
     and blend the section into the black sections above and below.
+
+## 18. Why Us — flip circles
+
+_Commit `<pending>` — "Add flip circles to the Why Us section"_
+
+67. Added the **four flip circles** to the Why Us section (matching the
+    reference): Consistent Results, Verified Purity, Reliable Service,
+    Quick Support — replacing the old stats row.
+68. Each circle is an outlined ring showing the title; on hover it
+    **flips in 3D** to a white circle revealing the description.
+69. Circle copy was read from the reference site with Playwright.
