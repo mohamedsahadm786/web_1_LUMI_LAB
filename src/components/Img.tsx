@@ -13,9 +13,12 @@ type Props = {
   fallback?: 'placeholder' | 'none';
 };
 
+const isVideo = (url: string) => /\.(mp4|webm|mov)(\?|$)/i.test(url);
+
 /**
- * Smart image. Renders the real photo if a matching file exists in
- * src/images/; otherwise falls back to a sized placeholder (or nothing).
+ * Smart media slot. Renders the real photo — or a looping video — if a
+ * matching file exists in src/images/; otherwise falls back to a sized
+ * placeholder (or nothing).
  */
 export default function Img({
   name,
@@ -37,6 +40,20 @@ export default function Img({
         tint={tint}
         className={className}
         rounded={rounded}
+      />
+    );
+  }
+
+  if (isVideo(url)) {
+    return (
+      <video
+        src={url}
+        className={`${rounded} ${className} object-cover`}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-label={alt || undefined}
       />
     );
   }

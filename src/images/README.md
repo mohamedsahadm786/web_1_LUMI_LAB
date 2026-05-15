@@ -32,11 +32,15 @@ No file at all? A grey placeholder shows instead, so nothing breaks.
 | `home-hero-background-image`   | The full background behind the hero     |
 
 ### `about/` — home page, About Us section
+The three media below cycle clockwise through the three About tiles.
+A file can be an image **or** a video (`.mp4`, `.webm`, `.mov`) — videos
+autoplay, muted and looping.
+
 | File name                  | Where it shows                              |
 |----------------------------|---------------------------------------------|
-| `home-about-large-image`   | The large left image                        |
-| `home-about-stat-image`    | Small image beside the `25+` counter        |
-| `home-about-small-image`   | The small image below the counter row       |
+| `video`                    | Cycling media #1 (currently a video)        |
+| `home-about-stat-image`    | Cycling media #2                            |
+| `home-about-small-image`   | Cycling media #3                            |
 
 ### `testimonials/` — home page, Testimonials section
 | File name                          | Where it shows           |

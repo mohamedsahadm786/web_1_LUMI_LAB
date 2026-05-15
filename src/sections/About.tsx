@@ -8,9 +8,9 @@ import { useCountUp } from '../hooks/useCountUp';
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
-/** The three images that rotate through the three image tiles. */
+/** The three media items that rotate through the three image tiles. */
 const CYCLE = [
-  'about/home-about-large-image',
+  'about/video',
   'about/home-about-stat-image',
   'about/home-about-small-image',
 ];

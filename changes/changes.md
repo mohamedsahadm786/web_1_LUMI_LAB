@@ -190,3 +190,14 @@ _Commit `<pending>` — "Cycle About images clockwise through the tiles"_
     along the clockwise direction (every ~2.8s). The `25+` counter tile
     is excluded — it stays fixed.
 55. Cycling is paused for users with reduced-motion enabled.
+
+## 13. About Us — video in the cycling tiles
+
+_Commit `<pending>` — "Support video media; use video.mp4 in About"_
+
+56. The media system now also detects **video files** (`.mp4`, `.webm`,
+    `.mov`); the `Img` component renders an autoplaying, muted, looping
+    `<video>` for them.
+57. Replaced the About `home-about-large-image` photo with
+    `src/images/about/video.mp4` — the video now cycles clockwise through
+    the About tiles alongside the two images.
