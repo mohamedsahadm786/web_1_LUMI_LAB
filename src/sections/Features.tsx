@@ -1,4 +1,5 @@
 import { motion } from 'motion/react';
+import Img from '../components/Img';
 
 type Feature = {
   title: string;
@@ -36,7 +37,7 @@ export default function Features() {
   return (
     <section className="relative py-24 md:py-32">
       <div className="shell">
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {FEATURES.map((f, i) => (
             <motion.article
               key={f.title}
@@ -70,6 +71,23 @@ export default function Features() {
               </span>
             </motion.article>
           ))}
+
+          {/* image square — rightmost cell in the features row */}
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '0px 0px -12% 0px' }}
+            transition={{ duration: 0.8, delay: FEATURES.length * 0.12, ease }}
+            className="group relative aspect-square self-start overflow-hidden rounded-3xl border border-hairline bg-surface"
+          >
+            <Img
+              name="extra/E_1"
+              alt="Luma"
+              label="Feature image"
+              rounded="rounded-none"
+              className="h-full w-full transition-transform duration-700 ease-smooth group-hover:scale-105"
+            />
+          </motion.div>
         </div>
       </div>
     </section>

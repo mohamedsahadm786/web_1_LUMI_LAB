@@ -130,3 +130,13 @@ _Commit `<pending>` — "Show hero background image, rotate hero product"_
     text remains readable.
 39. **`home-hero-product-image`** is now rotated 90° to the right, kept in
     the same position as before.
+
+## 8. Features row — added image square
+
+_Commit `<pending>` — "Add image square to features row"_
+
+40. Added a **4th cell** to the Features row (below the hero), on the far
+    right — a square tile holding the image `src/images/extra/E_1.webp`.
+41. The features grid is now 4-up on large screens (`grid-cols-1` →
+    `sm:grid-cols-2` → `lg:grid-cols-4`); the square top-aligns with the
+    three feature cards and gently zooms on hover.
