@@ -61,6 +61,48 @@ export default function Header() {
           >
             Buy Now
           </Link>
+
+          {/* cart */}
+          <button
+            aria-label="Cart"
+            className="group relative hidden h-11 w-11 place-items-center rounded-full border border-hairline text-white transition-colors duration-300 hover:bg-white hover:text-ink sm:grid"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-[18px] w-[18px]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M6 7h12l-1 13H7L6 7z" />
+              <path d="M9 7V5.5A3 3 0 0 1 15 5.5V7" />
+            </svg>
+            <span className="absolute -right-1 -top-1 grid h-[18px] w-[18px] place-items-center rounded-full bg-white text-[10px] font-medium leading-none text-ink ring-2 ring-ink transition-colors duration-300 group-hover:bg-ink group-hover:text-white group-hover:ring-white">
+              0
+            </span>
+          </button>
+
+          {/* search */}
+          <button
+            aria-label="Search"
+            className="hidden h-11 w-11 place-items-center rounded-full border border-hairline text-white transition-colors duration-300 hover:bg-white hover:text-ink sm:grid"
+          >
+            <svg
+              viewBox="0 0 24 24"
+              className="h-[18px] w-[18px]"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="1.6"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M21 21l-4.3-4.3" />
+            </svg>
+          </button>
+
           <button
             aria-label="Menu"
             onClick={() => setOpen((v) => !v)}
