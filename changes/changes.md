@@ -57,4 +57,23 @@ _Commit `9459480` — "Add cart and search icons to header"_
 19. **Hover behaviour** — on hover the circle fills white and the icon turns
     dark; the cart badge inverts (dark on white) so it stays visible.
 20. Icons show from the `sm` breakpoint up; mobile keeps the hamburger menu.
-    _(Click behaviour for these icons is still to be defined.)_
+
+## 4. Header — cart drawer & search overlay (click behaviour)
+
+_Commit `<pending>` — "Add cart drawer and search overlay"_
+
+21. **Cart drawer** (`CartDrawer.tsx`) — clicking the cart icon slides a panel
+    in from the **right** with a dimmed backdrop.
+22. Cart panel header shows `CART (0 ITEMS)` + a round white close button;
+    empty state shows a large cart icon, "your cart is empty", and a full-width
+    "Browse Shop" button linking to `/shop`. _(Line items come later.)_
+23. **Search overlay** (`SearchOverlay.tsx`) — clicking the search icon slides
+    a panel **down from the top** with a dimmed backdrop.
+24. Search panel has the LUMA logo, a text input ("Type your search words..."),
+    and a round close button; the input auto-focuses when it opens.
+25. **Live results** — products filter as you type; clicking any result
+    navigates to that product page (`/product/:slug`) and closes the overlay.
+    _(A dedicated results page may replace this — pending the next prompt.)_
+26. Both overlays: close on backdrop click, on `Escape`, and on route change;
+    page scroll (Lenis + native) is locked while open. Opening one closes the
+    other. Added a shared `useLockScroll` hook.

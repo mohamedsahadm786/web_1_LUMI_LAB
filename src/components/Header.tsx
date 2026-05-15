@@ -1,6 +1,11 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'motion/react';
+import CartDrawer from './CartDrawer';
+import SearchOverlay from './SearchOverlay';
+
+/** Items in cart — static for now; cart logic comes later. */
+const CART_COUNT = 0;
 
 const NAV = [
   { label: 'Home', to: '/#home' },
@@ -14,6 +19,8 @@ const NAV = [
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [cartOpen, setCartOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
@@ -23,7 +30,20 @@ export default function Header() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  useEffect(() => setOpen(false), [pathname]);
+  useEffect(() => {
+    setOpen(false);
+    setCartOpen(false);
+    setSearchOpen(false);
+  }, [pathname]);
+
+  const openCart = () => {
+    setSearchOpen(false);
+    setCartOpen(true);
+  };
+  const openSearch = () => {
+    setCartOpen(false);
+    setSearchOpen(true);
+  };
 
   return (
     <header
@@ -65,6 +85,7 @@ export default function Header() {
           {/* cart */}
           <button
             aria-label="Cart"
+            onClick={openCart}
             className="group relative hidden h-11 w-11 place-items-center rounded-full border border-hairline text-white transition-colors duration-300 hover:bg-white hover:text-ink sm:grid"
           >
             <svg
@@ -80,13 +101,14 @@ export default function Header() {
               <path d="M9 7V5.5A3 3 0 0 1 15 5.5V7" />
             </svg>
             <span className="absolute -right-1 -top-1 grid h-[18px] w-[18px] place-items-center rounded-full bg-white text-[10px] font-medium leading-none text-ink ring-2 ring-ink transition-colors duration-300 group-hover:bg-ink group-hover:text-white group-hover:ring-white">
-              0
+              {CART_COUNT}
             </span>
           </button>
 
           {/* search */}
           <button
             aria-label="Search"
+            onClick={openSearch}
             className="hidden h-11 w-11 place-items-center rounded-full border border-hairline text-white transition-colors duration-300 hover:bg-white hover:text-ink sm:grid"
           >
             <svg
@@ -151,6 +173,13 @@ export default function Header() {
           </motion.nav>
         )}
       </AnimatePresence>
+
+      <CartDrawer
+        open={cartOpen}
+        onClose={() => setCartOpen(false)}
+        count={CART_COUNT}
+      />
+      <SearchOverlay open={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
   );
 }
