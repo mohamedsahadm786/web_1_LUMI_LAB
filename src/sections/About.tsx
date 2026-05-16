@@ -85,7 +85,7 @@ function CyclingImage({ slot, step }: { slot: number; step: number }) {
       >
         <Img
           name={name}
-          alt="Luma"
+          alt="Alluvi"
           label="Image"
           rounded="rounded-none"
           className="h-full w-full"
@@ -182,7 +182,7 @@ export default function About() {
             </RevealText>
             <Reveal delay={0.15}>
               <p className="mt-7 text-base leading-relaxed text-body">
-                Luma is committed to advancing high-quality peptide and
+                Alluvi is committed to advancing high-quality peptide and
                 supplement research through clean, reliable, and precisely
                 developed formulations. Our goal is simple — to provide
                 controlled, consistent, and easy-to-use products designed for

@@ -63,7 +63,7 @@ export default function WhyUs() {
 
       <div className="shell relative z-10">
         <p className="mb-9 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.3em] text-white/45">
-          <span className="h-px w-8 bg-white/40" /> Why Choose Luma
+          <span className="h-px w-8 bg-white/40" /> Why Choose Alluvi
           <span className="h-px w-8 bg-white/40" />
         </p>
 

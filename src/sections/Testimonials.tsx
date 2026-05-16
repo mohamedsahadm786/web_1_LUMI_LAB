@@ -17,7 +17,7 @@ const REVIEWS: Review[] = [
   {
     slug: 'emily-carter',
     quote:
-      'Fast support and reliable formulations every time — ordering with Luma has been smooth, dependable, and refreshingly straightforward.',
+      'Fast support and reliable formulations every time — ordering with Alluvi has been smooth, dependable, and refreshingly straightforward.',
     name: 'Emily Carter',
     role: 'Wellness Consultant',
   },
@@ -69,7 +69,7 @@ export default function Testimonials() {
               What Our Customers Say
             </RevealText>
             <p className="mt-6 max-w-sm text-base text-body">
-              Trusted feedback from people who choose Luma for purity and
+              Trusted feedback from people who choose Alluvi for purity and
               precision every time.
             </p>
 

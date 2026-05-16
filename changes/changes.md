@@ -96,3 +96,21 @@ A numbered history of the changes made to this project.
    **Hero (`#home`) section**; it fades out smoothly in every other section
    (`src/components/CursorFlow.tsx` — gates `intensity` on the cursor being
    within the `#home` bounding box).
+
+10. **Added two recreation-handoff reference docs** — created
+    `changes/content-and-assets.md` (every piece of written copy in the site,
+    the full product catalogue, and the complete image-folder system — folder
+    map, naming rules, and what each slot is) and `changes/recreation-rules.md`
+    (a reusable playbook for recreating a site like this — analysis workflow,
+    stack, conventions, the motion/animation technique catalog, do-not rules,
+    and verification rules). These let a new recreation project be guided
+    without re-reading the whole codebase.
+
+11. **Renamed the brand from "Luma" to "ALLUVI"** — updated every brand
+    reference across the site: the page `<title>`, the header/footer logo
+    wordmark (`ALLUVI`, all-caps), the footer watermark and copyright, and all
+    body copy / `alt` / `aria-label` text (`Alluvi`, title-case in prose).
+    Touched `index.html`, `Logo.tsx`, `Hero.tsx`, `About.tsx`, `Features.tsx`,
+    `Contact.tsx`, `WhyUs.tsx`, `Testimonials.tsx`, `Footer.tsx`, and the
+    `src/images/README.md` wordmark note. The `sales@lumauae.com` email was
+    left as-is (a contact address, not the brand name).

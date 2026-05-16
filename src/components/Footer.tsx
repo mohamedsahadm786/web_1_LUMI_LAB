@@ -83,7 +83,7 @@ export default function Footer() {
             </h4>
             <p className="mb-6 text-sm text-body">
               Be the first to know about new products, promotions, and store
-              updates from Luma.
+              updates from Alluvi.
             </p>
             <form
               onSubmit={(e) => {
@@ -120,7 +120,7 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col items-center justify-between gap-3 border-t border-hairline py-7 text-xs text-white/40 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} Luma. All Rights Reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Alluvi. All Rights Reserved.</p>
           <p>Recreation build — placeholder assets.</p>
         </div>
       </div>
@@ -128,7 +128,7 @@ export default function Footer() {
       <div className="pointer-events-none select-none overflow-hidden">
         <p className="-mb-[0.18em] text-center font-caps uppercase leading-[0.8] text-white/[0.04]"
            style={{ fontSize: 'clamp(6rem, 26vw, 24rem)' }}>
-          Luma
+          Alluvi
         </p>
       </div>
     </footer>

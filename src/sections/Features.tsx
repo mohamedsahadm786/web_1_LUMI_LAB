@@ -82,7 +82,7 @@ export default function Features() {
           >
             <Img
               name="extra/E_1"
-              alt="Luma"
+              alt="Alluvi"
               label="Feature image"
               rounded="rounded-none"
               className="h-full w-full transition-transform duration-700 ease-smooth group-hover:scale-105"

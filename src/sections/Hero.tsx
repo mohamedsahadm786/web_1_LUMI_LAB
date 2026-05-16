@@ -116,7 +116,7 @@ export default function Hero() {
               href="#about"
               className="rounded-full border border-hairline px-8 py-3.5 text-sm text-white transition-colors hover:bg-white/5"
             >
-              Discover Luma
+              Discover Alluvi
             </a>
           </motion.div>
         </div>
@@ -133,7 +133,7 @@ export default function Hero() {
             <div className="rotate-90 overflow-hidden rounded-[2rem]">
               <Img
                 name="hero/home-hero-product-image"
-                alt="Luma product"
+                alt="Alluvi product"
                 label="3D Product Render"
                 tint={['#141414', '#323232']}
                 className="w-full scale-[1.12]"

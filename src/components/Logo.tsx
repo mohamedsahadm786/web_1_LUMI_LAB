@@ -9,7 +9,7 @@ type Props = {
 
 /**
  * Brand logo. Shows the image from src/images/logo/ if present,
- * otherwise the "LUMA" wordmark.
+ * otherwise the "ALLUVI" wordmark.
  */
 export default function Logo({ size = 'sm', onClick }: Props) {
   const logo = img('logo/site-logo');
@@ -25,16 +25,16 @@ export default function Logo({ size = 'sm', onClick }: Props) {
         goToSection('home', e);
       }}
       className="group inline-flex items-center gap-1"
-      aria-label="Luma — home"
+      aria-label="Alluvi — home"
     >
       {logo ? (
-        <img src={logo} alt="Luma" className={`${imgHeight} w-auto`} />
+        <img src={logo} alt="Alluvi" className={`${imgHeight} w-auto`} />
       ) : (
         <span className="inline-flex items-baseline gap-1">
           <span
             className={`font-display ${wordSize} font-semibold tracking-tight text-white`}
           >
-            LUMA
+            ALLUVI
           </span>
           <span className="h-1.5 w-1.5 rounded-full bg-white transition-transform duration-300 group-hover:scale-150" />
         </span>

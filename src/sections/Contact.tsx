@@ -57,7 +57,7 @@ export default function Contact() {
         {/* full-width banner image */}
         <Img
           name="extra/E_3"
-          alt="Get in touch with Luma"
+          alt="Get in touch with Alluvi"
           label="Contact"
           rounded="rounded-none"
           className="aspect-[3/2] w-full sm:aspect-[2/1] md:aspect-[5/2]"

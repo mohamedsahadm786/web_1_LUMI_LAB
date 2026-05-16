@@ -23,7 +23,7 @@ No file at all? A grey placeholder shows instead, so nothing breaks.
 ### `logo/`
 | File name    | Where it shows                              |
 |--------------|---------------------------------------------|
-| `site-logo`  | Header / footer / search bar logo. *(No dummy — the "LUMA" wordmark shows until you add this.)* |
+| `site-logo`  | Header / footer / search bar logo. *(No dummy — the "ALLUVI" wordmark shows until you add this.)* |
 
 ### `hero/` — home page, top section
 | File name                     | Where it shows                          |
