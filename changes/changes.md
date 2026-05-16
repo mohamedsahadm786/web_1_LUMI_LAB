@@ -74,3 +74,8 @@ A numbered history of the changes made to this project.
    - `SmoothScroll` now skips its force-scroll-to-top on back/forward (`POP`)
      navigation, and re-corrects a cross-page anchor jump after 360ms so the
      section lands precisely once images/fonts have settled.
+
+7. **Unified the product-card hover button to "Enquire"** — the hover action
+   button on `ProductCard` showed either "Add to Cart" or "Enquire" depending
+   on whether the product had a price. It now always shows **"Enquire"** for
+   every product (`src/components/ProductCard.tsx`).

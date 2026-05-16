@@ -102,7 +102,7 @@ export default function ProductCard({
         {/* hover action rail */}
         <div className="absolute inset-x-3 bottom-3 z-20 flex translate-y-[130%] gap-2 transition-transform duration-500 ease-smooth group-hover:translate-y-0">
           <span className="flex-1 rounded-full bg-white py-2.5 text-center text-xs font-medium text-ink">
-            {product.price ? 'Add to Cart' : 'Enquire'}
+            Enquire
           </span>
           <span className="grid h-10 w-10 place-items-center rounded-full border border-white/30 bg-ink/70 text-white backdrop-blur">
             &hearts;
