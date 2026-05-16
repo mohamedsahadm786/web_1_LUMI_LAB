@@ -79,3 +79,14 @@ A numbered history of the changes made to this project.
    button on `ProductCard` showed either "Add to Cart" or "Enquire" depending
    on whether the product had a price. It now always shows **"Enquire"** for
    every product (`src/components/ProductCard.tsx`).
+
+8. **Added a cursor-flow "river of light" — Home page only** — new component
+   `src/components/CursorFlow.tsx`, mounted in `src/pages/Home.tsx`. A
+   full-viewport canvas draws braided white / silver ribbons that trail the
+   cursor: they converge at the cursor (the source), spread and weave through
+   the middle like moving water, then taper and fade behind it. Travelling
+   sine waves keep it flowing; a soft radial glow marks the cursor source;
+   `mix-blend-screen` makes it only ever lighten the page. It fades in/out as
+   the cursor enters / leaves the window. Kept **monochrome** (white/silver,
+   no colour) to respect the theme. Disabled on touch / coarse-pointer devices
+   and for `prefers-reduced-motion`. Hand-written canvas — no new library.
