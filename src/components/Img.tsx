@@ -9,6 +9,8 @@ type Props = {
   tint?: [string, string];
   className?: string;
   rounded?: string;
+  /** object-fit: 'cover' crops to fill, 'contain' shows the whole image */
+  fit?: 'cover' | 'contain';
   /** what to show when no image file exists yet */
   fallback?: 'placeholder' | 'none';
 };
@@ -27,9 +29,11 @@ export default function Img({
   tint,
   className = '',
   rounded = 'rounded-2xl',
+  fit = 'cover',
   fallback = 'placeholder',
 }: Props) {
   const url = img(name);
+  const fitClass = fit === 'contain' ? 'object-contain' : 'object-cover';
 
   if (!url) {
     if (fallback === 'none') return null;
@@ -48,7 +52,7 @@ export default function Img({
     return (
       <video
         src={url}
-        className={`${rounded} ${className} object-cover`}
+        className={`${rounded} ${className} ${fitClass}`}
         autoPlay
         muted
         loop
@@ -63,7 +67,7 @@ export default function Img({
       src={url}
       alt={alt}
       loading="lazy"
-      className={`${rounded} ${className} object-cover`}
+      className={`${rounded} ${className} ${fitClass}`}
     />
   );
 }

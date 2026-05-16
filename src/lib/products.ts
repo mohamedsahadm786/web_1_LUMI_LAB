@@ -15,15 +15,15 @@ export const products: Product[] = [
     price: 'د.إ 999.00',
     tint: ['#1c1c1c', '#2e2e2e'],
     blurb:
-      'A dual research blend prepared under controlled conditions for consistent, reliable handling.',
+      'A dual research blend prepared under controlled conditions for consistent, reliable handling. Sourced from verified suppliers and carefully packed to ensure consistency, purity, and reliability.',
   },
   {
-    slug: 'glow-5mg',
-    name: 'Glow 5mg',
+    slug: 'nad-1000mg',
+    name: 'NAD+ 1,000mg',
     price: null,
     tint: ['#202020', '#343434'],
     blurb:
-      'A precise low-dose formulation developed for structured research applications.',
+      'NAD+ (Nicotinamide Adenine Dinucleotide) research formulation for laboratory analysis and in vitro studies only. Provided exclusively for controlled laboratory R&D applications.',
   },
   {
     slug: 'glow-70mg',
@@ -31,7 +31,7 @@ export const products: Product[] = [
     price: 'د.إ 1,199.00',
     tint: ['#1a1a1a', '#2a2a2a'],
     blurb:
-      'A higher-capacity formulation packed securely to preserve freshness and stability.',
+      'A higher-capacity formulation packed securely to preserve freshness and stability. Sourced from verified suppliers and carefully packed to ensure consistency, purity, and reliability.',
   },
   {
     slug: 'retatrutide-20mg',
@@ -39,7 +39,7 @@ export const products: Product[] = [
     price: null,
     tint: ['#222222', '#383838'],
     blurb:
-      'Developed with a strong focus on purity, consistency, and safe handling practices.',
+      'Developed with a strong focus on purity, consistency, and safe handling practices. Sourced from verified suppliers and carefully packed to ensure consistency, purity, and reliability.',
   },
   {
     slug: 'retatrutide-40mg',
@@ -47,7 +47,7 @@ export const products: Product[] = [
     price: 'د.إ 1,990.00',
     tint: ['#1d1d1d', '#303030'],
     blurb:
-      'A research formulation produced with uniform standards for a dependable experience.',
+      'A research formulation produced with uniform standards for a dependable experience. Sourced from verified suppliers and carefully packed to ensure consistency, purity, and reliability.',
   },
   {
     slug: 'tirzepatide-20mg',
@@ -55,7 +55,7 @@ export const products: Product[] = [
     price: null,
     tint: ['#1e1e1e', '#2c2c2c'],
     blurb:
-      'Checked thoroughly to maintain clean, high-quality formulations you can rely on.',
+      'Checked thoroughly to maintain clean, high-quality formulations you can rely on. Sourced from verified suppliers and carefully packed to ensure consistency, purity, and reliability.',
   },
   {
     slug: 'tirzepatide-40mg',
@@ -63,7 +63,7 @@ export const products: Product[] = [
     price: null,
     tint: ['#232323', '#3a3a3a'],
     blurb:
-      'Sealed and protected to preserve overall product integrity through delivery.',
+      'Sealed and protected to preserve overall product integrity through delivery. Sourced from verified suppliers and carefully packed to ensure consistency, purity, and reliability.',
   },
   {
     slug: 'tirzepatide-5mg',
@@ -71,7 +71,7 @@ export const products: Product[] = [
     price: null,
     tint: ['#1b1b1b', '#292929'],
     blurb:
-      'A starter-scale formulation sourced from verified suppliers and carefully packed.',
+      'A starter-scale formulation sourced from verified suppliers and carefully packed to ensure consistency, purity, and reliability.',
   },
 ];
 

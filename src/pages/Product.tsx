@@ -75,7 +75,8 @@ export default function Product() {
                 alt={product.name}
                 label={product.name}
                 tint={product.tint}
-                className="aspect-square w-full"
+                fit="contain"
+                className="aspect-[3/2] w-full bg-surface"
                 rounded="rounded-3xl"
               />
               <div className="mt-4 grid grid-cols-4 gap-4">
@@ -96,8 +97,9 @@ export default function Product() {
                       alt=""
                       label=""
                       tint={product.tint}
+                      fit="contain"
                       rounded="rounded-none"
-                      className="aspect-square w-full"
+                      className="aspect-[3/2] w-full bg-surface"
                     />
                   </button>
                 ))}
@@ -128,8 +130,7 @@ export default function Product() {
                 </span>
               </div>
               <p className="mt-6 text-base leading-relaxed text-body">
-                {product.blurb} Sourced from verified suppliers and carefully
-                packed to ensure consistency, purity, and reliability.
+                {product.blurb}
               </p>
 
               {/* qty + cta */}
