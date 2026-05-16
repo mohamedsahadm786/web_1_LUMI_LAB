@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { getProduct, products } from '../lib/products';
-import Img from '../components/Img';
+import ProductGallery from '../components/ProductGallery';
 import ProductCard from '../components/ProductCard';
 
 const ease = [0.22, 1, 0.36, 1] as const;
@@ -19,11 +19,6 @@ export default function Product() {
   const product = getProduct(slug);
   const [qty, setQty] = useState(1);
   const [open, setOpen] = useState<number | null>(0);
-  // active gallery thumbnail (null = the main product image)
-  const [active, setActive] = useState<number | null>(null);
-
-  // reset the gallery when switching products
-  useEffect(() => setActive(null), [slug]);
 
   if (!product) {
     return (
@@ -66,44 +61,7 @@ export default function Product() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease }}
             >
-              <Img
-                name={
-                  active === null
-                    ? `products/${product.slug}`
-                    : `product-gallery/${product.slug}_${active + 1}`
-                }
-                alt={product.name}
-                label={product.name}
-                tint={product.tint}
-                fit="contain"
-                className="aspect-[3/2] w-full bg-surface"
-                rounded="rounded-3xl"
-              />
-              <div className="mt-4 grid grid-cols-4 gap-4">
-                {[0, 1, 2, 3].map((i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    onClick={() => setActive(i)}
-                    aria-label={`View image ${i + 1}`}
-                    className={`overflow-hidden rounded-xl border transition-colors duration-300 ${
-                      active === i
-                        ? 'border-white/55'
-                        : 'border-hairline hover:border-white/25'
-                    }`}
-                  >
-                    <Img
-                      name={`product-gallery/${product.slug}_${i + 1}`}
-                      alt=""
-                      label=""
-                      tint={product.tint}
-                      fit="contain"
-                      rounded="rounded-none"
-                      className="aspect-[3/2] w-full bg-surface"
-                    />
-                  </button>
-                ))}
-              </div>
+              <ProductGallery key={product.slug} product={product} />
             </motion.div>
 
             {/* info */}

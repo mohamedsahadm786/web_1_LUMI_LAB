@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
 import Logo from './Logo';
+import { useSectionNav } from '../hooks/useSectionNav';
 
 const QUICK = [
   { label: 'Home', to: '/#home' },
@@ -15,6 +16,7 @@ const QUICK = [
 export default function Footer() {
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
+  const goToSection = useSectionNav();
 
   return (
     <footer className="relative overflow-hidden border-t border-hairline bg-ink pt-20">
@@ -61,6 +63,7 @@ export default function Footer() {
                 <li key={q.label}>
                   <Link
                     to={q.to}
+                    onClick={(e) => goToSection(q.to.split('#')[1], e)}
                     className="inline-block transition-transform duration-300 hover:translate-x-1 hover:text-white"
                   >
                     {q.label}

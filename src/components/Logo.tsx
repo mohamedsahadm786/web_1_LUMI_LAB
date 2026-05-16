@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { img } from '../lib/images';
+import { useSectionNav } from '../hooks/useSectionNav';
 
 type Props = {
   size?: 'sm' | 'lg';
@@ -14,11 +15,15 @@ export default function Logo({ size = 'sm', onClick }: Props) {
   const logo = img('logo/site-logo');
   const wordSize = size === 'lg' ? 'text-4xl' : 'text-2xl';
   const imgHeight = size === 'lg' ? 'h-11' : 'h-8';
+  const goToSection = useSectionNav();
 
   return (
     <Link
       to="/#home"
-      onClick={onClick}
+      onClick={(e) => {
+        onClick?.();
+        goToSection('home', e);
+      }}
       className="group inline-flex items-center gap-1"
       aria-label="Luma — home"
     >

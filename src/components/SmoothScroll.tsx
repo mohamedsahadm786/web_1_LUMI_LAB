@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigationType } from 'react-router-dom';
 import { ScrollTrigger } from '../lib/gsap';
 
 let lenis: Lenis | null = null;
@@ -8,6 +8,7 @@ let lenis: Lenis | null = null;
 /** Provides Lenis smooth scroll and keeps GSAP ScrollTrigger in sync. */
 export default function SmoothScroll() {
   const { pathname, hash } = useLocation();
+  const navType = useNavigationType();
 
   useEffect(() => {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -37,17 +38,26 @@ export default function SmoothScroll() {
 
   // anchor + route navigation
   useEffect(() => {
+    // Back / forward — keep the browser-restored scroll position.
+    if (navType === 'POP') return;
+
     if (hash) {
       const el = document.querySelector(hash);
       if (el) {
-        if (lenis) lenis.scrollTo(el as HTMLElement, { offset: -80 });
-        else el.scrollIntoView({ behavior: 'smooth' });
-        return;
+        const toSection = () => {
+          if (lenis) lenis.scrollTo(el as HTMLElement, { offset: -80 });
+          else el.scrollIntoView({ behavior: 'smooth' });
+        };
+        toSection();
+        // Re-correct once late layout shifts (images, fonts) settle, so a
+        // cross-page anchor jump lands precisely on the section.
+        const t = setTimeout(toSection, 360);
+        return () => clearTimeout(t);
       }
     }
     if (lenis) lenis.scrollTo(0, { immediate: true });
     else window.scrollTo(0, 0);
-  }, [pathname, hash]);
+  }, [pathname, hash, navType]);
 
   return null;
 }

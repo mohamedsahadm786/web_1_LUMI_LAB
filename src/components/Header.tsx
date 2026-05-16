@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'motion/react';
 import CartDrawer from './CartDrawer';
 import SearchOverlay from './SearchOverlay';
 import Logo from './Logo';
+import { useSectionNav } from '../hooks/useSectionNav';
 
 /** Items in cart — static for now; cart logic comes later. */
 const CART_COUNT = 0;
@@ -23,6 +24,7 @@ export default function Header() {
   const [cartOpen, setCartOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const { pathname } = useLocation();
+  const goToSection = useSectionNav();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -62,6 +64,10 @@ export default function Header() {
             <Link
               key={n.label}
               to={n.to}
+              onClick={(e) => {
+                goToSection(n.to.split('#')[1], e);
+                setOpen(false);
+              }}
               className="group relative text-sm text-body transition-colors hover:text-white"
             >
               {n.label}
@@ -154,6 +160,10 @@ export default function Header() {
                 <Link
                   key={n.label}
                   to={n.to}
+                  onClick={(e) => {
+                    goToSection(n.to.split('#')[1], e);
+                    setOpen(false);
+                  }}
                   className="border-b border-hairline py-3 text-lg text-body"
                 >
                   {n.label}

@@ -38,3 +38,39 @@ A numbered history of the changes made to this project.
    so the NAD+ page shows only its new text while the rest look unchanged.
    (The `tirzepatide-5mg` blurb, which had a duplicated phrase, was merged
    into one clean sentence.)
+
+5. **Upgraded the product-page gallery to a 3D card** — added
+   `src/components/ProductGallery.tsx` and wired it into `src/pages/Product.tsx`
+   (the inline gallery, its `active` state, and the slug-reset effect were
+   removed; the component is keyed by slug so it resets on navigation).
+   The main image is now a high-level 3D card with:
+   - cursor-tracking **3D tilt** (spring-eased `rotateX` / `rotateY`);
+   - a pulsing **glow** halo + a static dark drop shadow for depth;
+   - a cursor-following **glare** and a periodic diagonal **shine** sweep;
+   - a shining inner **rim**.
+   Clicking a thumbnail now **flips the main card** (a `rotateY` card-flip via
+   `AnimatePresence`) to reveal the picked image, and the active thumbnail is
+   highlighted while the others dim. All motion is disabled / simplified under
+   `prefers-reduced-motion`.
+
+6. **Fixed navigation-bar & back-button behaviour** — two bugs:
+   - **Nav links did nothing when re-clicked.** They were `<Link to="/#section">`,
+     and React Router treats clicking a link to the *current* URL as a no-op, so
+     re-clicking the section you were already on (or its link after scrolling
+     away) did nothing. Each click also pushed a `/#section` history entry.
+   - **Back button skipped to home.** Those piled-up `/#section` entries meant
+     pressing "back" from a product cycled through home-section entries instead
+     of reaching the real previous page; `SmoothScroll` also force-scrolled to
+     the top on *every* navigation, including back/forward.
+
+   Changes:
+   - Added `src/hooks/useSectionNav.ts` — on the home page it scrolls straight
+     to the section every time (no history entry) and gives the section a short
+     **shake** for feedback; on other routes it lets the `<Link>` navigate home.
+   - Wired it into the header nav (desktop + mobile), the footer Quick Links,
+     and the logo, so section clicks no longer pollute history.
+   - Added a `section-shake` keyframe to `src/index.css` (+ `overflow-x: clip`
+     on the body so the shake never spawns a horizontal scrollbar).
+   - `SmoothScroll` now skips its force-scroll-to-top on back/forward (`POP`)
+     navigation, and re-corrects a cross-page anchor jump after 360ms so the
+     section lands precisely once images/fonts have settled.
