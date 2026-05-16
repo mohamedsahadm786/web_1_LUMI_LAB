@@ -90,3 +90,9 @@ A numbered history of the changes made to this project.
    the cursor enters / leaves the window. Kept **monochrome** (white/silver,
    no colour) to respect the theme. Disabled on touch / coarse-pointer devices
    and for `prefers-reduced-motion`. Hand-written canvas — no new library.
+
+9. **Scoped the cursor-flow to the Hero section only** — the river of light
+   from change 8 now flows only while the cursor is over the home page's
+   **Hero (`#home`) section**; it fades out smoothly in every other section
+   (`src/components/CursorFlow.tsx` — gates `intensity` on the cursor being
+   within the `#home` bounding box).

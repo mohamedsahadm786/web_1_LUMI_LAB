@@ -8,8 +8,9 @@ import { useEffect, useRef } from 'react';
  * the cursor (the source), spread and weave through the middle, then taper
  * and fade behind it. The waves travel along the ribbons so it keeps flowing.
  *
- * Home page only. Disabled on touch / coarse-pointer devices and for
- * `prefers-reduced-motion`.
+ * Active only while the cursor is over the home page's Hero (#home) section —
+ * it fades out elsewhere on the page. Disabled on touch / coarse-pointer
+ * devices and for `prefers-reduced-motion`.
  */
 export default function CursorFlow() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -88,7 +89,15 @@ export default function CursorFlow() {
       raf = requestAnimationFrame(loop);
       time += 0.06;
 
-      intensity += ((started && inside ? 1 : 0) - intensity) * 0.08;
+      // the river only flows while the cursor is over the Hero (#home) section
+      let inHero = false;
+      const hero = document.getElementById('home');
+      if (hero) {
+        const r = hero.getBoundingClientRect();
+        inHero = pointer.y >= r.top && pointer.y <= r.bottom;
+      }
+      intensity +=
+        ((started && inside && inHero ? 1 : 0) - intensity) * 0.08;
 
       // ease the head toward the pointer; the rope follows the leader
       head.x += (pointer.x - head.x) * 0.24;
